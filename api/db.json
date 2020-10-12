@@ -1,0 +1,37 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Idéfix",
+      "species": "Chien",
+      "veterinarian": "Panoramix D'Armorique",
+      "comment": "Développe une allergie à la potion magique."
+    },
+    {
+      "id": 2,
+      "name": "Chatbus",
+      "species": "Chat",
+      "veterinarian": "Ged Épervier",
+      "comment": "Faire prendre rdv 1 mois au moins en avance afin de pouvoir réserver le hangar du mécaniste voisin."
+    },
+    {
+      "id": 3,
+      "name": "Teto",
+      "species": "Renard-écureuil",
+      "veterinarian": "Ged Épervier",
+      "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ],
+  "veterinarians": [
+    {
+      "id": 1,
+      "firstName": "Panoramix",
+      "lastName": "D'Armorique"
+    },
+    {
+      "id": 2,
+      "firstName": "Ged",
+      "lastName": "Épervier"
+    }
+  ]
+}
