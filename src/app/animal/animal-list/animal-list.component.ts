@@ -15,4 +15,9 @@ export class AnimalListComponent implements OnInit {
   ngOnInit(): void {
     this.animals = this.animalService.getAll();
   }
+
+  onDeleteItem(animalToDelete: Animal): void {
+    const index = this.animals.indexOf(animalToDelete);
+    this.animals.splice(index, 1);
+  }
 }

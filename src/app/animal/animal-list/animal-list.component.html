@@ -1,5 +1,8 @@
 <ul>
   <li *ngFor="let animal of animals">
-    <span appUppercase>{{ animal.name }}</span> - {{ animal.species }}
+    <app-animal-item
+      [model]="animal"
+      (delete)="onDeleteItem($event)"
+    ></app-animal-item>
   </li>
 </ul>
