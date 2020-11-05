@@ -13,22 +13,17 @@ export class AnimalDetailComponent implements OnDestroy, OnInit {
   animal: Animal;
   private subscription: Subscription;
 
-  constructor(
-    private animalService: AnimalService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
 
   ngOnInit(): void {
-    this.subscription = this.activatedRoute.paramMap.subscribe((paramMap) => {
-      const id = Number(paramMap.get('id'));
-
-      this.animalService.get(id).subscribe((animal) => {
-        this.animal = animal;
-      });
-    });
+    this.subscription = this.activatedRoute.data.subscribe(
+      (data: { animal: Animal }) => {
+        this.animal = data.animal;
+      }
+    );
   }
 }
