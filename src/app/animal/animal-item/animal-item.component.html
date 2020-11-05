@@ -1,4 +1,7 @@
-<span appUppercase>{{ model.name }}</span> - {{ model.species }}
+<a [routerLink]="[model.id]" appUppercase>
+  {{ model.name }}
+</a>
+- {{ model.species }}
 <br />
 {{ model.comment | truncate: 30 }}
 <br />
