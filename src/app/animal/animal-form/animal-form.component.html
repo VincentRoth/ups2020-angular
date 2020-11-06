@@ -1,17 +1,45 @@
-<form (ngSubmit)="onSubmit()" *ngIf="model">
+<form #animalForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="model">
   <label for="name">Nom</label>
-  <input id="name" [(ngModel)]="model.name" name="name" /> <br />
+  <input
+    id="name"
+    [(ngModel)]="model.name"
+    name="name"
+    required
+    minlength="4"
+    #nameCtrl="ngModel"
+  />
+  <br />
+  <p *ngIf="nameCtrl.errors?.required">Ce champs est obligatoire.</p>
+  <p *ngIf="nameCtrl.errors?.minlength">
+    Ce champs doit avoir au moins
+    {{ nameCtrl.errors.minlength.requiredLength }} caractères.
+  </p>
+
   <label for="species">Espèce</label>
-  <input id="species" [(ngModel)]="model.species" name="species" /> <br />
+  <input
+    id="species"
+    [(ngModel)]="model.species"
+    name="species"
+    required
+    #speciesCtrl="ngModel"
+  />
+  <br />
+  <p *ngIf="speciesCtrl.errors?.required">Ce champs est obligatoire.</p>
+
   <label for="veterinarian">Vétérinaire</label>
   <input
     id="veterinarian"
     [(ngModel)]="model.veterinarian"
     name="veterinarian"
+    required
+    #vetCtrl="ngModel"
   />
   <br />
+  <p *ngIf="vetCtrl.errors?.required">Ce champs est obligatoire.</p>
+
   <label for="comment">Commentaire</label>
   <textarea id="comment" [(ngModel)]="model.comment" name="comment"></textarea>
   <br />
-  <button type="submit">Envoyer</button>
+
+  <button type="submit" [disabled]="animalForm.form.invalid">Envoyer</button>
 </form>
