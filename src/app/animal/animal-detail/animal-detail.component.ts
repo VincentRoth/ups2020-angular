@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Animal } from '../../shared/api/animal';
-import { AnimalService } from '../../shared/api/animal.service';
 
 @Component({
   selector: 'app-animal-detail',

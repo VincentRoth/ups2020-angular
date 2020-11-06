@@ -5,4 +5,5 @@
 <br />
 {{ model.comment | truncate: 30 }}
 <br />
-<button type="button" (click)="onDelete()">Delete</button>
+<a [routerLink]="['edit', model.id]">Modifier</a>
+<button type="button" (click)="onDelete()">Supprimer</button>

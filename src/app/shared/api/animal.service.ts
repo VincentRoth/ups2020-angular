@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { Animal } from './animal';
 
 @Injectable({
@@ -19,5 +20,13 @@ export class AnimalService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`/api/animals/${id}`);
+  }
+
+  create(data: Animal): Observable<Animal> {
+    return this.http.post<Animal>('/api/animals/', data);
+  }
+
+  update(data: Animal): Observable<Animal> {
+    return this.http.put<Animal>(`/api/animals/${data.id}`, data);
   }
 }
