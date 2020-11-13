@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AnimalService } from '../../shared/api/animal.service';
 
 import { AnimalFormComponent } from './animal-form.component';
 
@@ -8,9 +12,10 @@ describe('AnimalFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnimalFormComponent ]
-    })
-    .compileComponents();
+      declarations: [AnimalFormComponent],
+      imports: [FormsModule, HttpClientTestingModule, RouterTestingModule],
+      providers: [AnimalService],
+    }).compileComponents();
   });
 
   beforeEach(() => {

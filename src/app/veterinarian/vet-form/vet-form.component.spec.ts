@@ -1,24 +1,29 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { VeterinarianService } from '../../shared/api/veterinarian.service';
 
-import { VetDetailComponent } from './vet-detail.component';
+import { VetFormComponent } from './vet-form.component';
 
-describe('VetDetailComponent', () => {
-  let component: VetDetailComponent;
-  let fixture: ComponentFixture<VetDetailComponent>;
+describe('VetFormComponent', () => {
+  let component: VetFormComponent;
+  let fixture: ComponentFixture<VetFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [VetDetailComponent],
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [VetFormComponent],
+      imports: [
+        RouterTestingModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+      ],
       providers: [VeterinarianService],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VetDetailComponent);
+    fixture = TestBed.createComponent(VetFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
