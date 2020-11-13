@@ -1,7 +1,15 @@
 <form [formGroup]="vetFormGroup" (ngSubmit)="onSubmit()">
   <label for="firstName">Prénom</label>
   <input formControlName="firstName" id="firstName" /><br />
+  <p *ngIf="vetFormGroup.get('firstName').errors?.required">
+    Ce champs est obligatoire.
+  </p>
+
   <label for="lastName">Nom</label>
   <input formControlName="lastName" id="lastName" /><br />
-  <button type="submit">Envoyer</button>
+  <p *ngIf="vetFormGroup.get('lastName').errors?.required">
+    Ce champs est obligatoire.
+  </p>
+
+  <button type="submit" [disabled]="vetFormGroup.invalid">Envoyer</button>
 </form>

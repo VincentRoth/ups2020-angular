@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Veterinarian } from '../../shared/api/veterinarian';
 import { VeterinarianService } from '../../shared/api/veterinarian.service';
@@ -25,17 +25,11 @@ export class VetFormComponent implements OnInit {
     if (id) {
       this.vetService.get(Number(id)).subscribe({
         next: (vet) => {
-          this.vetFormGroup = new FormGroup({
-            firstName: new FormControl(vet.firstName),
-            lastName: new FormControl(vet.lastName),
-          });
+          this.initForm(vet);
         },
       });
     } else {
-      this.vetFormGroup = new FormGroup({
-        firstName: new FormControl(),
-        lastName: new FormControl(),
-      });
+      this.initForm();
     }
   }
 
@@ -54,5 +48,13 @@ export class VetFormComponent implements OnInit {
         this.router.navigate(['/veterinarians']);
       });
     }
+  }
+
+  private initForm(model?: Veterinarian): void {
+    this.vetFormGroup = new FormGroup({
+      // model?.firstName équivalent à model && model.firstName
+      firstName: new FormControl(model?.firstName, Validators.required),
+      lastName: new FormControl(model && model.lastName, Validators.required),
+    });
   }
 }
