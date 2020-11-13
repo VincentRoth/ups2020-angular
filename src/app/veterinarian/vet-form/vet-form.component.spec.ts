@@ -31,4 +31,12 @@ describe('VetFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('DOM elemnt should updates on data change', () => {
+    const compiled = fixture.nativeElement;
+
+    expect(compiled.querySelector('#firstName').value).toBeFalsy();
+    component.vetFormGroup.get('firstName').setValue('test');
+    expect(compiled.querySelector('#firstName').value).toEqual('test');
+  });
 });
