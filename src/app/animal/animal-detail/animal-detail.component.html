@@ -1,5 +1,5 @@
 <p>
-  Nom : {{ animal?.name }}<br />
+  {{ "animal.detail.name" | translate: { value: animal?.name } }}<br />
   Espèce : {{ animal?.species }}<br />
   Vétérinaire : {{ animal?.veterinarian }}<br />
   Commentaire : {{ animal?.comment }}

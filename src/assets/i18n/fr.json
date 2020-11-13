@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Accueil"
+  },
+  "animal": {
+    "detail": {
+      "name": "Nom : {{value}}"
+    }
+  }
+}
